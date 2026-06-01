@@ -124,6 +124,8 @@ p {
 .dropdown {
     position: relative;
     display: inline-block;
+    padding-bottom: 10px; /* Invisible bridge */
+    margin-bottom: -10px;
 }
 
 .dropdown-content {
@@ -140,6 +142,16 @@ p {
     padding: 0.8rem 0;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(26, 26, 26, 0.05);
+}
+
+/* Invisible bridge so mouse doesn't lose hover */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
 }
 
 .dropdown-content a {
@@ -172,7 +184,7 @@ p {
 @keyframes fadeInDropdown {
     from {
         opacity: 0;
-        transform: translate(-50%, 10px);
+        transform: translate(-50%, -5px);
     }
     to {
         opacity: 1;
