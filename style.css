@@ -310,7 +310,7 @@ p {
 .footer {
     padding: 6rem 5% 2rem;
     text-align: center;
-    background-color: #111;
+    background-color: #000000;
     color: var(--bg-color);
 }
 
