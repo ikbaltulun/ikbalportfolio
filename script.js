@@ -52,4 +52,39 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // --- Lightbox Modal Logic ---
+    const modal = document.getElementById('lightbox-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeModal = document.querySelector('.close-modal');
+    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+    // Open modal when clicking an overlay link
+    lightboxTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent opening in new tab
+            const imgSrc = trigger.getAttribute('href'); // Get image URL
+            modalImg.src = imgSrc;
+            modal.classList.add('show');
+        });
+    });
+
+    // Close modal when clicking the X button
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('show');
+        // Optional: wait for animation to finish before clearing src to prevent visual pop
+        setTimeout(() => {
+            if (!modal.classList.contains('show')) modalImg.src = '';
+        }, 300);
+    });
+
+    // Close modal when clicking anywhere outside the image
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                if (!modal.classList.contains('show')) modalImg.src = '';
+            }, 300);
+        }
+    });
 });
