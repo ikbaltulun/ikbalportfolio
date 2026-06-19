@@ -432,6 +432,11 @@ p {
         font-size: 1.5rem;
     }
 
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
     .dropdown-content {
         position: relative;
         top: 0;
