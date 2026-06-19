@@ -440,7 +440,9 @@ p {
         box-shadow: none;
         background-color: transparent;
         border: none;
-        min-width: 100%;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
         padding: 1rem 0 0 0;
         display: none;
     }
@@ -448,6 +450,7 @@ p {
     .dropdown.active .dropdown-content {
         display: flex;
         flex-direction: column;
+        align-items: center;
         animation: fadeInDropdown 0.3s ease forwards;
     }
 
@@ -457,7 +460,12 @@ p {
 
     .dropdown-content a {
         font-size: 1.1rem;
-        padding: 10px 0;
+        padding: 10px 20px;
+        white-space: normal;
+        word-wrap: break-word;
+        max-width: 90vw;
+        line-height: 1.4;
+        text-align: center;
     }
 
     .hero {
